@@ -11,7 +11,7 @@
 #define AIM_DOTS 8
 
 // OAM slots
-#define OBJ_NUBBY 0
+#define OBJ_NOBBLE 0
 #define OBJ_ICON  1               // 5 slots: owned items, or shop wares / perk choices
 #define OBJ_PERK  (OBJ_ICON + MAX_ITEMS)
 #define OBJ_DOT   (OBJ_PERK + MAX_PERKS)   // aim guide
@@ -204,18 +204,18 @@ static void draw_objects(void)
     int nx = state == ST_AIM ? LAUNCH_X : game.x >> 8;
     int ny = state == ST_AIM ? LAUNCH_Y : game.y >> 8;
     if ((state == ST_AIM || game.flying) && game_has(&game, ITEM_BIG))
-        set_obj(OBJ_NUBBY, nx - 8, ny - 8, ATTR1_SIZE16,
-                (blink ? TILE_NUBBY_BIG_BLINK : TILE_NUBBY_BIG) | ATTR2_PRIO(1) | ATTR2_PAL(PAL_NUBBY));
+        set_obj(OBJ_NOBBLE, nx - 8, ny - 8, ATTR1_SIZE16,
+                (blink ? TILE_NOBBLE_BIG_BLINK : TILE_NOBBLE_BIG) | ATTR2_PRIO(1) | ATTR2_PAL(PAL_NOBBLE));
     else if (state == ST_AIM || game.flying)
-        set_obj(OBJ_NUBBY, nx - 4, ny - 4, ATTR1_SIZE8,
-                (blink ? TILE_NUBBY_BLINK : TILE_NUBBY) | ATTR2_PRIO(1) | ATTR2_PAL(PAL_NUBBY));
+        set_obj(OBJ_NOBBLE, nx - 4, ny - 4, ATTR1_SIZE8,
+                (blink ? TILE_NOBBLE_BLINK : TILE_NOBBLE) | ATTR2_PRIO(1) | ATTR2_PAL(PAL_NOBBLE));
 
     if (state == ST_AIM) {
         int16_t xs[AIM_DOTS], ys[AIM_DOTS];
         int n = game_predict(&game, aim, xs, ys, AIM_DOTS);
         for (int d = 0; d < n; d++)
             set_obj(OBJ_DOT + d, xs[d] - 4, ys[d] - 4, ATTR1_SIZE8,
-                    TILE_DOT | ATTR2_PRIO(1) | ATTR2_PAL(PAL_NUBBY));
+                    TILE_DOT | ATTR2_PRIO(1) | ATTR2_PAL(PAL_NOBBLE));
     }
 
     // boss hazards: the laser locks onto a band of pegs, blinks a warning, then fires
@@ -422,7 +422,7 @@ static void show_howto(void)
     panel(1, 28, 18);
     text_center(2, "HOW TO PLAY", TXT_HILITE);
     text_style(2, 4, "AIM WITH LEFT AND RIGHT,", TXT_PANEL);
-    text_style(2, 5, "A LAUNCHES NUBBY.", TXT_PANEL);
+    text_style(2, 5, "A LAUNCHES NOBBLE.", TXT_PANEL);
     text_style(2, 7, "A HIT SCORES THE PEG'S", TXT_PANEL);
     text_style(2, 8, "NUMBER AND HALVES IT.", TXT_PANEL);
     text_style(2, 9, "A 1 POPS AND VANISHES.", TXT_PANEL);
@@ -446,11 +446,11 @@ static const struct { const char *role, *name; } credits[] = {
     { "COMPOSER", "CLAUDE" }, { "SOUND DESIGNER", "CLAUDE" },
     { "QA LEAD", "CLAUDE" }, { "QA TESTER", "HEATH" },
     { "BALANCE TESTER", "HEATH" }, { "ECONOMY DESIGNER", "CLAUDE" },
-    { "PEG ENGINEER", "CLAUDE" }, { "NUBBY WRANGLER", "CLAUDE" },
+    { "PEG ENGINEER", "CLAUDE" }, { "NOBBLE WRANGLER", "CLAUDE" },
 };
 #define NUM_ROLES ((int)(sizeof(credits) / sizeof(credits[0])))
 #define CREDITS_LEAD 20           // blank rows so the list starts below the screen
-#define CREDITS_HEAD 4            // "NUBBY GBA", blank, "CREDITS", blank
+#define CREDITS_HEAD 4            // "NOBBLE GBA", blank, "CREDITS", blank
 #define CREDITS_TAIL (CREDITS_LEAD + CREDITS_HEAD + NUM_ROLES * 3 + 1)
 #define CREDITS_END (CREDITS_TAIL + 5)
 
@@ -459,7 +459,7 @@ static void credits_write_row(int r)
 {
     text_clear_row(r);
     int i = r - CREDITS_LEAD;
-    if (i == 0) text_center(r, "NUBBY GBA", TXT_GOLD);
+    if (i == 0) text_center(r, "NOBBLE GBA", TXT_GOLD);
     if (i == 2) text_center(r, "CREDITS", TXT_PLAIN);
     i -= CREDITS_HEAD;
     if (i < 0) return;
@@ -581,7 +581,7 @@ static void game_over(void)
     text_center(11, "PRESS START", TXT_PANEL);
 }
 
-// Called when Nubby falls out: score the launch and show how it went.
+// Called when Nobble falls out: score the launch and show how it went.
 static void finish_launch(void)
 {
     char buf[32], *p;

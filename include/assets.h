@@ -12,10 +12,10 @@
 #define BG_IMG_WORDS 9600
 
 // sprite tiles and palette banks
-#define TILE_NUBBY 0
-#define TILE_NUBBY_BLINK 1
-#define TILE_NUBBY_BIG 2
-#define TILE_NUBBY_BIG_BLINK 6
+#define TILE_NOBBLE 0
+#define TILE_NOBBLE_BLINK 1
+#define TILE_NOBBLE_BIG 2
+#define TILE_NOBBLE_BIG_BLINK 6
 #define TILE_PEG 10           // 16x16 disc template (4 tiles)
 #define TILE_DOT 14
 #define TILE_SOCKET 15
@@ -25,7 +25,7 @@
 #define TILE_LASER 20
 #define TILE_WIND 21
 #define TILE_FREE 98        // first unused sprite tile
-#define PAL_NUBBY 0
+#define PAL_NOBBLE 0
 #define PAL_TIER(t) (1 + (t))                   // peg colour by value tier
 #define NUM_TIERS 9
 #define PAL_FLASH 10

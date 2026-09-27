@@ -1,6 +1,6 @@
-# Nubby GBA - build with devkitARM (devkitPro)
+# Nobble GBA - build with devkitARM (devkitPro)
 
-TARGET  := nubby-gba
+TARGET  := nobble-gba
 BUILD   := build
 SOURCES := $(wildcard source/*.c)
 OBJECTS := $(SOURCES:source/%.c=$(BUILD)/%.o)
@@ -20,7 +20,7 @@ all: $(TARGET).gba
 
 $(TARGET).gba: $(BUILD)/$(TARGET).elf
 	$(OBJCOPY) -O binary $< $@
-	$(GBAFIX) $@ -tNUBBYGBA
+	$(GBAFIX) $@ -tNOBBLEGBA
 
 $(BUILD)/$(TARGET).elf: $(OBJECTS)
 	$(CC) $(LDFLAGS) $^ -o $@

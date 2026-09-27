@@ -1,9 +1,9 @@
-# Nubby GBA
+# Nobble GBA
 
-![Nubby GBA title screen](docs/title-screen.png)
+![Nobble GBA title screen](docs/title-screen.png)
 
 A number-popping roguelike for the Game Boy Advance, loosely inspired by
-*Nubby's Number Factory*. Aim Nubby from the launcher, bounce it off the walls
+*Nubby's Number Factory*. Aim Nobble from the launcher, bounce it off the walls
 and pop the numbered pegs to hit each round's quota in a single launch.
 
 | | |
@@ -23,10 +23,10 @@ and pop the numbered pegs to hit each round's quota in a single launch.
 ## How to play
 
 - Aim the launcher at the top with **Left / Right** (L / R nudge one step) and
-  press **A** to launch Nubby. The dotted line shows where it will go.
-- Pegs hold powers of two. When Nubby hits a peg it **scores the peg's number
+  press **A** to launch Nobble. The dotted line shows where it will go.
+- Pegs hold powers of two. When Nobble hits a peg it **scores the peg's number
   and halves it**: 8 becomes 4, then 2, then 1, and a 1 pops and vanishes.
-  Nubby bounces off pegs and the side walls until it falls into the shredder.
+  Nobble bounces off pegs and the side walls until it falls into the shredder.
 - Each round has a **quota**, a share of all the points left on the board.
   You must reach it **in a single launch**. Miss and you lose a life and the
   board resets for another try.
@@ -45,16 +45,16 @@ and pop the numbered pegs to hit each round's quota in a single launch.
 
 | Item | Trigger | Effect | Cost |
 | --- | --- | --- | --- |
-| Springs | Nubby falls out | Bounce back up (once per launch) | 6 |
+| Springs | Nobble falls out | Bounce back up (once per launch) | 6 |
 | Seeder | On launch | Add a peg to an empty slot | 4 |
 | Pump | On launch | Double the lowest peg | 5 |
 | Zapper | First peg popped | Pop the highest peg | 5 |
 | Doubler | First peg popped | Double a random peg | 5 |
 | Ricochet | Wall bounce | Pop a random peg (up to 6 a launch) | 6 |
 | Piggy | Peg popped away | 1 in 4 chance of a coin | 4 |
-| Encore | Nubby falls out | +25% of the launch score | 6 |
+| Encore | Nobble falls out | +25% of the launch score | 6 |
 | Chain | Every 8 pegs popped | Double a random peg | 5 |
-| Big | Always | Nubby is bigger | 6 |
+| Big | Always | Nobble is bigger | 6 |
 | Heart | Always | +1 life and +1 to your maximum | 7 |
 
 - Every 5 rounds you choose one of two **perks** (up to 4). Perks force items
@@ -62,14 +62,14 @@ and pop the numbered pegs to hit each round's quota in a single launch.
 
 | Perk | When | What it triggers |
 | --- | --- | --- |
-| Cheesy | Every 3 seconds in flight | All items |
-| Chaotic | Every second in flight | A random item |
-| Waffle | First peg popped | 2 random items |
-| Kebab | Nubby falls out | 50% chance: a random item |
-| Springy | Wall bounce | 1 in 4 chance: a random item |
-| Trophy | Passing the goal | All items |
-| Buckshot | First pop is the biggest peg | 3 random items |
-| House of Cards | 15 pegs popped | All items |
+| Conveyor | Every 3 seconds in flight | All items |
+| Gremlin | Every second in flight | A random item |
+| Ignition | First peg popped | 2 random items |
+| Recycler | Nobble falls out | 50% chance: a random item |
+| Bumper | Wall bounce | 1 in 4 chance: a random item |
+| Payday | Passing the goal | All items |
+| Jackpot | First pop is the biggest peg | 3 random items |
+| Domino | 15 pegs popped | All items |
 
 - Every 5th round is a **boss round** with a hazard on the board. Beat it for
   3 bonus coins:
@@ -77,7 +77,7 @@ and pop the numbered pegs to hit each round's quota in a single launch.
 | Boss | Hazard |
 | --- | --- |
 | Laser Grid | A laser locks onto a band of pegs, blinks a warning, then wipes it out |
-| Wind Tunnel | Gusts push Nubby sideways, switching direction every 1.5 seconds |
+| Wind Tunnel | Gusts push Nobble sideways, switching direction every 1.5 seconds |
 | Armour Plating | Steel-grey pegs need one hit to crack the armour before they score |
 
 - The music changes every 5 rounds (Factory Funk, Assembly Line, Overtime,
@@ -116,10 +116,10 @@ Python 3 is only needed if you change the artwork (`make assets`).
 4. Build and run:
 
    ```bash
-   git clone https://github.com/hjcoggan/nubby-gba.git ~/nubby-gba
-   cd ~/nubby-gba
+   git clone https://github.com/hjcoggan/nobble-gba.git ~/nobble-gba
+   cd ~/nobble-gba
    make
-   open -a mGBA nubby-gba.gba
+   open -a mGBA nobble-gba.gba
    ```
 
 ### Windows
@@ -133,14 +133,14 @@ Python 3 is only needed if you change the artwork (`make assets`).
    comes with devkitPro, with `make` and `git`) and build:
 
    ```bash
-   git clone https://github.com/hjcoggan/nubby-gba.git
-   cd nubby-gba
+   git clone https://github.com/hjcoggan/nobble-gba.git
+   cd nobble-gba
    make
    ```
 
    If `git` is missing, install it with `pacman -S git`.
 
-3. Install mGBA from <https://mgba.io/downloads.html> and open `nubby-gba.gba`
+3. Install mGBA from <https://mgba.io/downloads.html> and open `nobble-gba.gba`
    with it (or drag the file onto the mGBA window).
 
 ### Linux
@@ -172,10 +172,10 @@ Python 3 is only needed if you change the artwork (`make assets`).
 4. Build and run:
 
    ```bash
-   git clone https://github.com/hjcoggan/nubby-gba.git
-   cd nubby-gba
+   git clone https://github.com/hjcoggan/nobble-gba.git
+   cd nobble-gba
    make
-   mgba-qt nubby-gba.gba
+   mgba-qt nobble-gba.gba
    ```
 
 ### Tests
