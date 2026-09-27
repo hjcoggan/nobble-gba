@@ -218,12 +218,12 @@ static void draw_objects(void)
                     TILE_DOT | ATTR2_PRIO(1) | ATTR2_PAL(PAL_NUBBY));
     }
 
-    // boss hazards: the laser locks onto a row, blinks a warning, then fires
-    if (game.boss == BOSS_LASER && game.laser_row >= 0 && state == ST_FLY) {
+    // boss hazards: the laser locks onto a band of pegs, blinks a warning, then fires
+    if (game.boss == BOSS_LASER && game.laser_y >= 0 && state == ST_FLY) {
         int warn = game.laser_timer < LASER_WARN;
         if (!warn || (frames & 4))
             for (int k = 0; k < 20; k++)
-                set_obj(OBJ_FX + k, BOARD_L + k * 8, game_row_y(game.laser_row) - 4, 0,
+                set_obj(OBJ_FX + k, BOARD_L + k * 8, game.laser_y - 4, 0,
                         (warn ? TILE_LASER_WARN : TILE_LASER) | ATTR2_PRIO(warn ? 1 : 0) | ATTR2_PAL(PAL_FX));
     }
     // wind streaks drift the way the wind blows
@@ -241,15 +241,19 @@ static void draw_objects(void)
     for (int p = 0; p < game.nperks; p++)
         perk_obj(OBJ_PERK + p, game.perks[p], 2 + (p % 2) * 18, 112 + (p / 2) * 18, 1, game.perk_flash[p] & 4);
 
-    for (int i = 0; i < NUM_SLOTS; i++) {
+    for (int i = 0; i < game.nslots; i++) {
         int32_t v = game.pegs[i];
-        if (!v) continue;
+        if (!v) {                                  // an empty slot in this layout
+            set_obj(OBJ_PEG + i, game.slot[i].x - 8, game.slot[i].y - 8, ATTR1_SIZE16,
+                    TILE_SOCKET | ATTR2_PRIO(2) | ATTR2_PAL(PAL_ARMOR));
+            continue;
+        }
         if (v != shown[i]) {
             render_peg(i, v);
             shown[i] = v;
         }
         int pal = game.flash[i] ? PAL_FLASH : game.armor[i] ? PAL_ARMOR : PAL_TIER(tier(v));
-        set_obj(OBJ_PEG + i, slots[i].x - 8, slots[i].y - 8, ATTR1_SIZE16,
+        set_obj(OBJ_PEG + i, game.slot[i].x - 8, game.slot[i].y - 8, ATTR1_SIZE16,
                 PEG_TILE(i) | ATTR2_PRIO(1) | ATTR2_PAL(pal));
     }
 }

@@ -18,12 +18,13 @@
 #define TILE_NUBBY_BIG_BLINK 6
 #define TILE_PEG 10           // 16x16 disc template (4 tiles)
 #define TILE_DOT 14
-#define TILE_ICON(i) (18 + (i) * 4)
-#define TILE_PERK(i) (62 + (i) * 4)
-#define TILE_LASER_WARN 15
-#define TILE_LASER 16
-#define TILE_WIND 17
-#define TILE_FREE 94        // first unused sprite tile
+#define TILE_SOCKET 15
+#define TILE_ICON(i) (22 + (i) * 4)
+#define TILE_PERK(i) (66 + (i) * 4)
+#define TILE_LASER_WARN 19
+#define TILE_LASER 20
+#define TILE_WIND 21
+#define TILE_FREE 98        // first unused sprite tile
 #define PAL_NUBBY 0
 #define PAL_TIER(t) (1 + (t))                   // peg colour by value tier
 #define NUM_TIERS 9
@@ -39,7 +40,7 @@ extern const uint16_t title_pal[256];
 extern const uint32_t title_tiles[BG_IMG_WORDS];
 extern const uint16_t *const board_pal[NUM_BOARDS];
 extern const uint32_t *const board_tiles[NUM_BOARDS];
-extern const uint32_t obj_tiles[752];
+extern const uint32_t obj_tiles[784];
 extern const uint32_t font_tiles[1984];
 
 #endif
