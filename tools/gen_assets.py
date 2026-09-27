@@ -708,6 +708,15 @@ ICONS = [   # items, in game.h order: (colour, 5x7 symbol)
     ("purple", GLYPHS["8"]),                                      # chain
     ("orange", ".###. #...# #...# #...# #...# #...# .###."),        # big
     ("pink", "..... .#.#. ##### ##### .###. ..#.. ....."),          # heart
+    ("blue", "..... ##### ..... ..... ##### ..... ....."),          # merger: =
+    ("green", "#...# ..#.. .###. ##### .###. ..#.. #...#"),          # spawner: burst
+    ("gold", "..#.. .##.. ##### .##.# ..#.# ...## ..#.."),           # surge
+    ("orange", "..#.. .###. #.#.# ##### #.#.# .###. ..#.."),         # sniper: crosshair
+    ("purple", "..#.. ..#.. .#.#. .#.#. #...# #...# #####"),         # alchemy: flask
+    ("gold", "..#.. .#### #.#.. .###. ..#.# ####. ..#.."),           # payroll: $
+    ("pink", ".###. #.#.# #.#.# #.### #...# #...# .###."),           # overtime: clock
+    ("gray", "##### #...# #...# #...# .#.#. ..#.. ....."),           # shield
+    ("green", ".###. #...# #.#.# #...# .###. ..... ....."),          # scope
 ]
 PERK_ICONS = [   # perks, in game.h order
     ("gold", GLYPHS["C"]),                                        # conveyor
@@ -718,6 +727,13 @@ PERK_ICONS = [   # perks, in game.h order
     ("gold", GLYPHS["P"]),                                        # payday
     ("gray", GLYPHS["J"]),                                        # jackpot
     ("green", GLYPHS["D"]),                                       # domino
+    ("orange", "..#.. ..#.. .###. ##### .###. ..#.. ..#.."),         # spark
+    ("blue", GLYPHS["F"]),                                        # flurry
+    ("purple", "..#.. .###. .###. ##### ##### ##### ....."),         # prism
+    ("gold", "..#.. .#### #.#.. .###. ..#.# ####. ..#.."),           # cashback: $
+    ("blue", GLYPHS["W"]),                                        # whale
+    ("pink", GLYPHS["E"]),                                        # echo
+    ("gold", GLYPHS["!"]),                                        # finale
 ]
 
 

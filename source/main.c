@@ -8,7 +8,7 @@
 #define MAP_SBB 31
 #define PAUSE_DIM 9               // 0-16 brightness decrease behind menus
 #define RESULT_FRAMES 100
-#define AIM_DOTS 8
+#define AIM_DOTS 16               // room for Scope's longer guide (8 normally)
 
 // OAM slots
 #define OBJ_NOBBLE 0
@@ -212,7 +212,7 @@ static void draw_objects(void)
 
     if (state == ST_AIM) {
         int16_t xs[AIM_DOTS], ys[AIM_DOTS];
-        int n = game_predict(&game, aim, xs, ys, AIM_DOTS);
+        int n = game_predict(&game, aim, xs, ys, game_guide_dots(&game, AIM_DOTS / 2));
         for (int d = 0; d < n; d++)
             set_obj(OBJ_DOT + d, xs[d] - 4, ys[d] - 4, ATTR1_SIZE8,
                     TILE_DOT | ATTR2_PRIO(1) | ATTR2_PAL(PAL_NOBBLE));
@@ -619,7 +619,7 @@ static void finish_launch(void)
         text_center(6, "MISSED!", TXT_HILITE);
         p = put_num(buf, game.lives);
         put_str(p, game.lives == 1 ? " LIFE LEFT" : " LIVES LEFT");
-        text_center(10, buf, TXT_PANEL);
+        text_center(10, game.shielded ? "SHIELD SAVED A LIFE" : buf, TXT_PANEL);
         text_center(12, "THE BOARD RESETS", TXT_PANEL);
     }
     state = ST_RESULT;

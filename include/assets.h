@@ -20,11 +20,11 @@
 #define TILE_DOT 14
 #define TILE_SOCKET 15
 #define TILE_ICON(i) (22 + (i) * 4)
-#define TILE_PERK(i) (66 + (i) * 4)
+#define TILE_PERK(i) (102 + (i) * 4)
 #define TILE_LASER_WARN 19
 #define TILE_LASER 20
 #define TILE_WIND 21
-#define TILE_FREE 98        // first unused sprite tile
+#define TILE_FREE 162        // first unused sprite tile
 #define PAL_NOBBLE 0
 #define PAL_TIER(t) (1 + (t))                   // peg colour by value tier
 #define NUM_TIERS 9
@@ -40,7 +40,7 @@ extern const uint16_t title_pal[256];
 extern const uint32_t title_tiles[BG_IMG_WORDS];
 extern const uint16_t *const board_pal[NUM_BOARDS];
 extern const uint32_t *const board_tiles[NUM_BOARDS];
-extern const uint32_t obj_tiles[784];
+extern const uint32_t obj_tiles[1296];
 extern const uint32_t font_tiles[1984];
 
 #endif
